@@ -33,6 +33,14 @@ export function isUndefined(value: unknown): value is undefined
 }
 
 /**
+ * Check if value is not undefined.
+ */
+export function isDefined(value: unknown): boolean
+{
+    return !isUndefined(value);
+}
+
+/**
  * Check if value is a valid Date.
  */
 export function isDate(value: unknown): value is Date
@@ -63,6 +71,78 @@ export function isObject(value: unknown): value is Obj
 {
     return typeof value === 'object' && !isNull(value) && !isArray(value);
 }
+
+/**
+ * Check if value is an object and it not empty.
+ */
+export function isNotEmptyObject(value: unknown): boolean
+{
+    return isObject(value) && Object.keys(value).length > 0;
+}
+
+/**
+ * Check if value is an object and it is empty.
+ */
+export function isEmptyObject(value: unknown): boolean
+{
+    return isObject(value) && Object.keys(value).length === 0;
+}
+
+/**
+ * Check if value is a function.
+ */
+export function isFunction(value: unknown): value is (...params: any[]) => any
+{
+    return typeof value === 'function';
+}
+
+/**
+ * Clone value
+ */
+export const cloneValue = (value: any, deep = false): any =>
+{
+    if (Array.isArray(value))
+    {
+        if (deep)
+        {
+            const arr: any[] = [];
+            if (!value)
+            {
+                return arr;
+            }
+            let i = value.length;
+            while (i--)
+            {
+                arr[i] = deep ? cloneValue(value[i]) : value[i];
+            }
+            return arr;
+        }
+        else
+        {
+            return [...value];
+        }
+    }
+
+    if (isObject(value))
+    {
+        let result = {};
+
+        if (deep)
+        {
+            for (const key of Object.keys(value))
+            {
+                result[key] = cloneValue(value[key]);
+            }
+        }
+        else
+        {
+            result = { ...value };
+        }
+        return result;
+    }
+    return value;
+};
+
 
 /**
  * Create a new Ok result.
