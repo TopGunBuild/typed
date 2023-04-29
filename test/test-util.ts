@@ -1,6 +1,5 @@
 import { StructError, StructErrorInfo } from '../src/error';
 
-
 export function expectOk(actual: any, expected: any)
 {
     expect(actual).toEqual({ ok: true, value: expected });
