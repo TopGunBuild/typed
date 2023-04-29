@@ -21,23 +21,3 @@ export function expectErr(
     }
 }
 
-export function generateMessageId(): string
-{
-    return Math.random()
-        .toString(36)
-        .slice(2)
-}
-
-export function pseudoRandomText(
-    l = 24,
-    c = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXZabcdefghijklmnopqrstuvwxyz'
-): string
-{
-    let s = '';
-    while (l > 0)
-    {
-        s += c.charAt(Math.floor(Math.random() * c.length));
-        l--
-    }
-    return s
-}
