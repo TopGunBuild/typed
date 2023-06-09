@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/TopGunBuild/topgun-typed/compare/v1.1.0...v1.2.0) (2023-06-09)
+
+
+### Features
+
+* add functions to structs ([0996736](https://github.com/TopGunBuild/topgun-typed/commit/09967368bc87fb404fc8bbfe957c9b469dedee20))
+
 # [1.1.0](https://github.com/TopGunBuild/topgun-typed/compare/v1.0.0...v1.1.0) (2023-04-29)
 
 
