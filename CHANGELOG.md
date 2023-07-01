@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/TopGunBuild/topgun-typed/compare/v1.2.0...v1.3.0) (2023-07-01)
+
+
+### Features
+
+* add unionAll struct ([0ca3d30](https://github.com/TopGunBuild/topgun-typed/commit/0ca3d30151d48cf151cfee07f23efc0a9683c58c))
+
 # [1.2.0](https://github.com/TopGunBuild/topgun-typed/compare/v1.1.0...v1.2.0) (2023-06-09)
 
 
