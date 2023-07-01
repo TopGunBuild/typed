@@ -14,6 +14,7 @@ export * from './record';
 export * from './string';
 export * from './tuple';
 export * from './union';
+export * from './unionall';
 export * from './unknown';
 export * from './function';
 
