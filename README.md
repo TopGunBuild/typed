@@ -1,15 +1,15 @@
-<h1 align="center" style="border-bottom: none;">✅ topgun-typed</h1>
+<h1 align="center" style="border-bottom: none;">✅ @topgunbuild/typed</h1>
 <h3 align="center">Fast, tiny and type-safe runtime validation library for <a href="https://github.com/TopGunBuild/topgun">TopGun</a></h3>
 
 <p align="center">
   <a href="https://github.com/semantic-release/semantic-release">
       <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   </a>
-  <a href="https://npm.im/topgun-typed">
-    <img alt="npm" src="https://badgen.net/npm/v/topgun-typed">
+  <a href="https://npm.im/@topgunbuild/typed">
+    <img alt="npm" src="https://badgen.net/npm/v/@topgunbuild/typed">
   </a>
-  <a href="https://bundlephobia.com/result?p=topgun-typed">
-    <img alt="bundlephobia" src="https://img.shields.io/bundlephobia/minzip/topgun-typed.svg">
+  <a href="https://bundlephobia.com/result?p=@topgunbuild/typed">
+    <img alt="bundlephobia" src="https://img.shields.io/bundlephobia/minzip/@topgunbuild/typed.svg">
   </a>
   <a href="https://opensource.org/licenses/MIT">
       <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg">
@@ -18,12 +18,14 @@
 
 ## Install
 
-`npm install topgun-typed`
+```bash
+npm install @topgunbuild/typed
+```
 
 ## Usage
 
 ```ts
-import * as t from "topgun-typed";
+import * as t from "@topgunbuild/typed";
 
 const post = t.object({
   id: t.number(),
@@ -62,7 +64,7 @@ const parsed = t.unwrapOr(result, {
 Validate data from a remote API.
 
 ```ts
-import * as t from "topgun-typed";
+import * as t from "@topgunbuild/typed";
 
 const post = t.object({
   id: t.number(),
@@ -92,7 +94,7 @@ There's a chance you'll want to define more complex types to deal with your data
 The map function allows you to convert one "base" type into another. It always starts from a base type.
 
 ```ts
-import * as t from "topgun-typed";
+import * as t from "@topgunbuild/typed";
 
 // Suppose we have this geolocation struct.
 const latLng = t.object({
@@ -127,7 +129,7 @@ The `chain` function is useful when you don't want to change the type of your da
 For example, if you have a string that you want to trim and lowercase it, then `chain` is the function you want to use.
 
 ```ts
-import * as t from "topgun-typed";
+import * as t from "@topgunbuild/typed";
 
 const trim = (value: string) => value.trim();
 const lower = (value: string) => value.toLowerCase();
@@ -143,10 +145,10 @@ const result = trimLower("  Hello World  "); // { ok: true, value: "hello world"
 
 ### Creating a struct from scratch
 
-A struct is nothing more than a function that takes whatever input and returns a `Result`. The convention in `topgun-typed` is to have factory functions that return a struct just to be able to customize error messages. This was not the case in previous versions of typed, but it is now.
+A struct is nothing more than a function that takes whatever input and returns a `Result`. The convention in `@topgunbuild/typed` is to have factory functions that return a struct just to be able to customize error messages. This was not the case in previous versions of typed, but it is now.
 
 ```ts
-import * as t from "topgun-typed";
+import * as t from "@topgunbuild/typed";
 
 const regex =
   (regex: RegExp, msg = "Expecting value to match regex"): t.Struct<string> =>
@@ -158,11 +160,11 @@ const regex =
   };
 ```
 
-_You can browse the `topgun-typed` source code to see how structs are implemented if you're curious._
+_You can browse the `@topgunbuild/typed` source code to see how structs are implemented if you're curious._
 
 ## Notes
 
-`topgun-typed` will deep clone non primitive values as it validates them. So if you pass an object or array to a struct, it will be cloned. This is to say that `topgun-typed` will get rid of any extra properties on your data, so it'll exactly match the shape you defined.
+`@topgunbuild/typed` will deep clone non primitive values as it validates them. So if you pass an object or array to a struct, it will be cloned. This is to say that `@topgunbuild/typed` will get rid of any extra properties on your data, so it'll exactly match the shape you defined.
 
 ## Reference
 
