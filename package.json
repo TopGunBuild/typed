@@ -1,6 +1,6 @@
 {
     "name": "@topgunbuild/typed",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Fast, tiny and type-safe runtime validation library",
     "publishConfig": {
         "access": "public"
