@@ -7,7 +7,7 @@ import { err, isBoolean, ok } from '../util';
  */
 export const boolean =
     (msg = 'Expecting boolean'): Struct<boolean> =>
-        (input) =>
+        input =>
             isBoolean(input)
                 ? ok(input)
                 : err(new StructError(msg, { input, path: [] }));

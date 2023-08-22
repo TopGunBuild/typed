@@ -7,7 +7,7 @@ import { err, isDate, isNumber, isString, ok } from '../util';
  */
 export const date =
     (msg = 'Expecting date'): Struct<Date> =>
-        (input) =>
+        input =>
             isDate(input)
                 ? ok(new Date(input.getTime()))
                 : err(new StructError(msg, { input, path: [] }));
@@ -18,6 +18,6 @@ export const date =
 export const asDate = (msg?: string): Struct<Date> =>
 {
     const fn = date(msg);
-    return (input) =>
+    return input =>
         isString(input) || isNumber(input) ? fn(new Date(input)) : fn(input);
 };

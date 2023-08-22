@@ -33,7 +33,7 @@ export const asArray = <T>(
 ): Struct<T[]> =>
 {
     const fn = array(struct, msg);
-    return (input) => (isArray(input) ? fn(input) : fn([input]));
+    return input => (isArray(input) ? fn(input) : fn([input]));
 };
 
 /**
@@ -41,5 +41,5 @@ export const asArray = <T>(
  */
 export const asOnly =
     <T>(struct: Struct<T>, index = 0): Struct<T> =>
-        (input) =>
+        input =>
             Array.isArray(input) ? struct(input[index]) : struct(input);

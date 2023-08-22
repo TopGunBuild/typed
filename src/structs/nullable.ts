@@ -6,5 +6,5 @@ import { isNull, ok } from '../util';
  */
 export const nullable =
     <T>(struct: Struct<T>): Struct<T|null> =>
-        (input) =>
+        input =>
             isNull(input) ? ok(input) : struct(input);

@@ -15,7 +15,7 @@ export const enums = <T extends Enum>(
     {
         msg = `Expecting one of ${values.join(', ')}`;
     }
-    return (input) =>
+    return input =>
         values.includes(input)
             ? ok(input)
             : err(new StructError(msg as string, { input, path: [] }));

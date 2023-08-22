@@ -6,5 +6,5 @@ import { isUndefined, ok } from '../util';
  */
 export const defaulted =
     <T>(struct: Struct<T>, defaultValue: T): Struct<T> =>
-        (input) =>
+        input =>
             isUndefined(input) ? ok(defaultValue) : struct(input);

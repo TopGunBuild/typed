@@ -7,7 +7,7 @@ import { err, isFunction, ok } from '../util';
  */
 export const fn =
     (msg = 'Expecting function'): Struct<(...args: any[]) => any> =>
-        (input) =>
+        input =>
             isFunction(input)
                 ? ok(input)
                 : err(new StructError(msg, { input, path: [] }));

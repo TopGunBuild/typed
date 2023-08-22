@@ -7,7 +7,7 @@ import { err, isNumber, ok } from '../util';
  */
 export const number =
     (msg = 'Expecting number'): Struct<number> =>
-        (input) =>
+        input =>
             isNumber(input)
                 ? ok(input)
                 : err(new StructError(msg, { input, path: [] }));
@@ -18,5 +18,5 @@ export const number =
 export const asNumber = (msg?: string): Struct<number> =>
 {
     const fn = number(msg);
-    return (input) => fn(Number(input));
+    return input => fn(Number(input));
 };

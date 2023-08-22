@@ -7,7 +7,7 @@ import { err, ok } from '../util';
  */
 export const literal =
     <T extends Literal>(constant: T, msg = 'Expecting literal'): Struct<T> =>
-        (input) =>
+        input =>
             input === constant
                 ? ok(input)
                 : err(new StructError(msg, { input, path: [] }));
